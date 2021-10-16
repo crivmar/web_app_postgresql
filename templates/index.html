@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+<div id="Formulario">
+    <ul class="actions">
+    {% block formulario %}
+        <form action="/consulta" method="POST">
+            <label>IP servidor:</label>
+            <input type="text" name="ip" value="{{ip}}" required/>
+            <label>Base de datos:</label>
+            <input type="text" name="bbdd" value="{{bbdd}}" required/>
+            <label>Usuario:</label>
+            <input type="text" name="user" value="{{user}}" required/>
+            <label>Contraseña:</label>
+            <input type="password" name="passw" value="{{passw}}" required/>
+            <input type="submit" value="Enviar"/>
+        </form>
+    {% endblock %}
+    </ul>
+</div>

@@ -1,0 +1,57 @@
+POSTGRESQL
+------------------
+
+create table edificios(
+ID integer,
+Nombre varchar(20),
+Calle varchar(100),
+Localidad varchar(50),
+Constraint pk_edificios primary key (ID)
+);
+
+create table departamentos (
+ID_departamento integer,
+Nombre varchar(20),
+ID_edificio integer,
+Constraint pk_departamentos primary key(ID_departamento),
+Constraint fk_departamentos foreign key (ID_edificio) references edificios(ID)
+);
+
+create table empleados (
+DNI varchar(9),
+Nombre varchar(20),
+Apellidos varchar(50),
+Salario integer,
+ID_dept integer,
+Constraint pk_empleados primary key (DNI),
+Constraint fk_empleados foreign key (ID_dept) references departamentos (ID_departamento)
+);
+
+
+insert into edificios values (1,'San Martín','Falsa,1,7ªpl','Madrid');
+insert into edificios values (2,'Santa María','Inventada,3','Aranjuez');
+insert into edificios values (3,'Nuevo Mundo','Tralarí,23','Móstoles');
+insert into edificios values (4,'Amanecer','Tralará,s/n','Coslada');
+
+insert into departamentos values (10,'Ingenería',1);
+insert into departamentos values (20,'Administración',1);
+insert into departamentos values (30,'Recursos Humanos',3);
+insert into departamentos values (40,'Calidad',3);
+insert into departamentos values (50,'Informática',2);
+insert into departamentos values (60,'I+D',2);
+insert into departamentos values (70,'Comercial',4);
+
+insert into empleados values ('18569841L','Arturo','Montes Alvarado',2567,10);
+insert into empleados values ('18569842L','María','Montes Alvarado',2700,10);
+insert into empleados values ('18569843L','Carla','Galera Cruz',1600,10);
+insert into empleados values ('18569844L','Raúl','Gómez Primor',2000,20);
+insert into empleados values ('18569845L','Rafael','Torres Salvado',1950,20);
+insert into empleados values ('18569846L','Laura','Garriga Sargento',1500,30);
+insert into empleados values ('18569847L','Manuel','Ocaña Teruel',1900,40);
+insert into empleados values ('18569848L','Carmen','Muñoz Abascal',1900,40);
+insert into empleados values ('18569849L','Alejandro','León Calvo',2700,50);
+insert into empleados values ('18569850L','Francisco','Moncada García',2080,50);
+insert into empleados values ('18569851L','José','Camino Cerrado',3000,60);
+insert into empleados values ('18569852L','Carmen','Murillo Greco',1875,70);
+
+
